@@ -25,9 +25,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_HOME,          KC_END,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
+     KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LGUI,          KC_END,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                   KC_LALT, KC_LGUI,   MO(_LOWER),                    TO(_LOWER),     KC_SPC, KC_RALT
+                                   KC_LALT, MO(_LOWER),   KC_LGUI,                    TO(_LOWER),     KC_SPC, KC_RALT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
 
   ),
@@ -40,9 +40,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT,  KC_PGUP, KC_NO,  KC_MS_UP,  KC_NO,  KC_NO,                              KC_LEFT,   KC_DOWN,   KC_UP,   KC_RIGHT,   KC_PGUP, KC_RSFT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LCTL,  KC_PGDN,KC_MS_LEFT,KC_MS_DOWN,KC_MS_RIGHT, KC_NO, KC_NO,       KC_NO,  KC_NO,  KC_NO,  KC_NO, KC_NO,KC_PGDN, KC_ENT,
+     KC_LCTL,  KC_PGDN,KC_MS_LEFT,KC_MS_DOWN,KC_MS_RIGHT, KC_NO, KC_LGUI,       KC_NO,  KC_NO,  KC_NO,  KC_NO, KC_NO,KC_PGDN, KC_ENT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    KC_LALT,  KC_LGUI,  MO(_QWERTY),            TO(_RAISE),KC_SPC, KC_RALT
+                                    KC_LALT,  MO(_QWERTY),  KC_LGUI,            TO(_RAISE),KC_SPC, KC_RALT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -54,9 +54,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                              KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LCTL,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_ENT,
+     KC_LCTL,  KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_LGUI,            KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_ENT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    KC_LALT,  KC_LGUI,  MO(_QWERTY),            TO(_QWERTY),KC_SPC, KC_RALT
+                                    KC_LALT,  MO(_QWERTY),  KC_LGUI,            TO(_QWERTY),KC_SPC, KC_RALT
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -144,7 +144,6 @@ static bool LAYER_1_EFFECT(effect_params_t *params) {
 void keyboard_post_user_init(void) {
     rgb_matrix_sethsv_noeeprom(HSV_OFF);
 }
-
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t layer = get_highest_layer(layer_state);
